@@ -83,7 +83,7 @@ public class RadioTest {
 
   @Test
   public void getSoundVolume() {
-    Radio currentVolume  = new Radio();
+    Radio currentVolume = new Radio();
     currentVolume.soundVolume = 10;
     int exprcted = 10;
     int actual = currentVolume.getSoundVolume();
@@ -92,7 +92,7 @@ public class RadioTest {
 
   @Test
   public void getSoundVolumeMin() {
-    Radio currentVolume  = new Radio();
+    Radio currentVolume = new Radio();
     currentVolume.getSoundVolume();
     int exprcted = 0;
     int actual = currentVolume.getSoundVolume();
@@ -110,7 +110,7 @@ public class RadioTest {
 
   @Test
   public void setSoundVolumeMinus() {
-    Radio currentVolume  = new Radio();
+    Radio currentVolume = new Radio();
     currentVolume.setSoundVolume(-6);
     int exprcted = 0;
     int actual = currentVolume.getSoundVolume();
@@ -119,7 +119,7 @@ public class RadioTest {
 
   @Test
   public void setSoundVolumeMax() {
-    Radio currentVolume  = new Radio();
+    Radio currentVolume = new Radio();
     currentVolume.setSoundVolume(16);
     int exprcted = 0;
     int actual = currentVolume.getSoundVolume();
@@ -128,7 +128,7 @@ public class RadioTest {
 
   @Test
   public void increaseVolume() {
-    Radio currentVolume  = new Radio();
+    Radio currentVolume = new Radio();
     currentVolume.increaseVolume();
     int exprcted = 1;
     int actual = currentVolume.getSoundVolume();
@@ -137,8 +137,8 @@ public class RadioTest {
 
   @Test
   public void increaseVolumeMax() {
-    Radio currentVolume  = new Radio();
-    currentVolume.soundVolume=10;
+    Radio currentVolume = new Radio();
+    currentVolume.soundVolume = 10;
     currentVolume.increaseVolume();
     int exprcted = 10;
     int actual = currentVolume.getSoundVolume();
@@ -147,19 +147,21 @@ public class RadioTest {
 
   @Test
   public void decreaseVolumeMin() {
-    Radio currentVolume  = new Radio();
+    Radio currentVolume = new Radio();
     currentVolume.decreaseVolume();
     int exprcted = 0;
     int actual = currentVolume.getSoundVolume();
     Assertions.assertEquals(exprcted, actual);
   }
+
   @Test
   public void decreaseVolume() {
-    Radio currentVolume  = new Radio();
-    currentVolume.soundVolume =10;
+    Radio currentVolume = new Radio();
+    currentVolume.soundVolume = 10;
     currentVolume.decreaseVolume();
     int exprcted = 9;
     int actual = currentVolume.getSoundVolume();
     Assertions.assertEquals(exprcted, actual);
   }
+
 }
