@@ -1,27 +1,37 @@
 package ru.netology;
 
 public class Radio {
-  int radioStationNumber;
-  int soundVolume;
+  protected int radioStationNumber; /* номер радиостанции*/
+  protected int soundVolume; /* громкость звука*/
+  protected int radioAmount = 10; /* кол-во радиостанций*/
+
+  public Radio(int radioAmount) {
+    this.radioAmount = radioAmount;
+  }
+
+  public Radio() {
+  }
 
   public int getRadioStationNumber() {
     return radioStationNumber;
   }
 
-  public void setRadioStationNumber(int RadioStationNumber) {
+  public void setRadioStationNumber(int radioStationNumber) {
 
-    if (RadioStationNumber < 0) {
+    if (radioStationNumber < 0) {
       return;
     }
-    if (RadioStationNumber > 9) {
+    if (radioStationNumber > (radioAmount - 1)) {
       return;
     }
-    this.radioStationNumber = RadioStationNumber;
+    this.radioStationNumber = radioStationNumber;
   }
 
   public void nextRadioStationNumber() {
-
-    if (radioStationNumber == 9) {
+    if (radioStationNumber >= radioAmount) {
+      this.radioStationNumber = (radioAmount - 1);
+    }
+    if (radioStationNumber == (radioAmount - 1)) {
       radioStationNumber = 0;
     } else {
       radioStationNumber++;
@@ -29,9 +39,11 @@ public class Radio {
   }
 
   public void prevRadioStationNumber() {
-
+    if (radioStationNumber >= radioAmount) {
+      this.radioStationNumber = (radioAmount - 1);
+    }
     if (radioStationNumber == 0) {
-      radioStationNumber = 9;
+      radioStationNumber = (radioAmount - 1);
     } else {
       radioStationNumber--;
     }
@@ -47,21 +59,21 @@ public class Radio {
     if (soundVolume < 0) {
       return;
     }
-    if (soundVolume > 10) {
+    if (soundVolume > 100) {
       return;
     }
     this.soundVolume = soundVolume;
   }
 
   public void increaseVolume() {
-    if (soundVolume < 10) {
+    if (soundVolume < 100) {
       soundVolume++;
     }
     this.soundVolume = soundVolume;
   }
 
   public void decreaseVolume() {
-    if (soundVolume >= 10) {
+    if (soundVolume > 0) {
       soundVolume--;
     }
     this.soundVolume = soundVolume;
